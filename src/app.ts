@@ -30,7 +30,7 @@ function buildCorsOptions(): CorsOptions {
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     exposedHeaders: ['X-Total-Count'],
-    maxAge: 86400, // 24 h — el browser cachea el preflight
+    maxAge: 86400, // 24 h — el browser  cachea el preflight
   };
 }
 
