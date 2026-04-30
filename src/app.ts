@@ -83,6 +83,16 @@ export function createApp(prisma: PrismaClient): Express {
     res.json({ status: 'ok', service: 'auth-service', timestamp: new Date().toISOString() });
   });
 
+  // TEMPORAL — diagnóstico de Prisma (eliminar tras confirmar la causa)
+  app.get('/api/v1/health-db', async (_req, res) => {
+    try {
+      const count = await (prisma as any).user.count();
+      res.json({ ok: true, userCount: count });
+    } catch (err: any) {
+      res.json({ ok: false, error: err.message, name: err.name, code: err.code });
+    }
+  });
+
   app.use('/api/v1/auth', createAuthRouter(prisma));
 
   app.use(notFoundHandler);
