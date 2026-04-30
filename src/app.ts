@@ -24,7 +24,7 @@ function buildCorsOptions(): CorsOptions {
       if (allowed.length === 0 || allowed.includes('*')) return callback(null, true);
       // Verificación exacta
       if (allowed.includes(origin)) return callback(null, true);
-      callback(new Error(`CORS: origen no permitido: ${origin}`));
+      callback(null, false);
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
