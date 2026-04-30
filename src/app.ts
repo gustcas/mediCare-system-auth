@@ -12,7 +12,7 @@ import { errorHandler, notFoundHandler } from './infrastructure/middleware/error
 import { logger } from './shared/utils/logger';
 
 
-export function createApp(prisma: PrismaClient) {
+export function createApp(prisma: PrismaClient): Express {
   const app = express();
 
   app.use(helmet());
