@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { type Express } from "express";
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -10,6 +10,7 @@ import { PrismaClient } from '@prisma/client';
 import { createAuthRouter } from './interfaces/http/routes/authRoutes';
 import { errorHandler, notFoundHandler } from './infrastructure/middleware/errorHandler';
 import { logger } from './shared/utils/logger';
+
 
 export function createApp(prisma: PrismaClient) {
   const app = express();
